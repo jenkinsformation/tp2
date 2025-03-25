@@ -15,4 +15,14 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            echo "Got an error, will send an email"
+            sh 'echo "Found error" > erreur.log'
+            archiveArtefacts artifacts: 'erreur.log', fingerprint: true
+        }
+        success {
+            echo "Pipeline executed sucessfully"
+        }
+    }
 }
