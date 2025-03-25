@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environnement {
+    environment {
         APP_NAME = 'db-app'
     }
     stages {
