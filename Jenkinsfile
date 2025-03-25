@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     def buildVersion = "1.0.${env.BUILD_NUMBER}"
-                    echo "Building ${APP_NAME}" version ${buildVersion}"
+                    echo "Building ${APP_NAME} version ${buildVersion}"
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     def buildVersion = "1.0.${env.BUILD_NUMBER}"
-                    echo "Building ${APP_NAME}" version ${buildVersion}"
+                    echo "Building ${APP_NAME} version ${buildVersion}"
                 }
             }
         }
