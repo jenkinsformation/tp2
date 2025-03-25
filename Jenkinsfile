@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USER = 'ferrenzio@gmail.com'
+        DOCKER_USER = 'dockerdavetp3'
     }
     stages {
         stage('Login Docker') {
