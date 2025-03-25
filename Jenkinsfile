@@ -1,10 +1,9 @@
 pipeline {
     agent any
     stages {
-
-                stage('Build') {
-                    steps {
-                        script {
+        stage('Build') {
+            steps {
+                script {
                     try {
                         echo "compile started..."
                         sh 'exit 1' // Error simulation
@@ -13,7 +12,7 @@ pipeline {
                         currentBuild.result = 'FAILURE'
                     }
                 }
-                    }
-                }
+            }
+        }
     }
 }
