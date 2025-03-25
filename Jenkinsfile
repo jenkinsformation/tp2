@@ -1,26 +1,14 @@
 pipeline {
     agent any
     environment {
-        APP_NAME = 'db-app'
+        DOCKER_USER = 'dockerdavetp3'
     }
     stages {
-        stage('Build') {
+        stage('Login Docker') {
             steps {
                 script {
-                    def buildVersion = "1.0.${env.BUILD_NUMBER}"
-                    echo "Building ${APP_NAME} version ${buildVersion}"
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing ${APP_NAME} ...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                script {
-                    def buildVersion = "1.0.${env.BUILD_NUMBER}"
+                    withCredentials([string(credentialsId:'DOCKER_PASSWORD_DB', variable: 'DOCKER_PASS')])
+                    {sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'}"
                     echo "Building ${APP_NAME} version ${buildVersion}"
                 }
             }
